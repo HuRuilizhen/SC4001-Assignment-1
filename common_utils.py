@@ -22,7 +22,9 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import f1_score, precision_score, recall_score, confusion_matrix
 
 
-def split_dataset(df, columns_to_drop, test_size, random_state):
+def split_dataset(
+    df: pd.DataFrame, columns_to_drop: list[str], test_size: float, random_state: int
+) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     label_encoder = preprocessing.LabelEncoder()
 
     df["label"] = label_encoder.fit_transform(df["label"])
